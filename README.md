@@ -1,16 +1,7 @@
-# Majesty’s Pleasure – GitHub Pages
+# Majesty's Pleasure — static GitHub Pages
 
-Pages: `/` and `/flatiron/`.
+Two static pages: `/` and `/flatiron/`. No Webflow assets, JavaScript, or branding. Google Analytics uses measurement ID `G-HC3DVVEXPE` and reports page_location using the main website URLs. The real hosting remains GitHub Pages.
 
-## Publish
-1. Create a public GitHub repository.
-2. Upload **contents** of this folder to the repository root.
-3. Settings → Pages → Deploy from a branch → main / (root) → Save.
-4. Open `https://USERNAME.github.io/REPOSITORY/` and `/flatiron/`.
+Upload `index.html`, `flatiron/` and `.nojekyll` into the root of the GitHub repository. Enable Pages with `main` and `/(root)`.
 
-## Notes
-- HTML reconstructed from supplied Webflow page source. CSS and JS still load from Webflow/CDN, so this is **not** an offline-independent export.
-- Verify both pages visually and verify network requests, analytics and GTM before relying on the copy.
-- GA4 G-HC3DVVEXPE and GTM GTM-PZ37ZR2 are retained. Check for duplicate GA4 events in GTM.
-- No hostname spoofing or GA4 URL rewriting was applied; the desired reporting domain has not been specified.
-- GitHub Pages may not be suitable for commercial websites under its usage limits; review GitHub Pages terms.
+**Important:** This package deliberately does not include the original GTM container (`GTM-PZ37ZR2`), to avoid unexpected additional tags. If the main site relies on GTM for conversion tracking, review this before replacing the old implementation. Also test GA4 Realtime and events after deployment; reporting a virtual page_location does not merge user identities across domains.
